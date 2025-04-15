@@ -1,0 +1,126 @@
+
+@use '../utilidades/variables' as vars;
+.yellow-text {
+    color: var(--primary) !important;
+}
+
+.yellow-border {
+    border-color: var(--primary) !important;
+}
+
+.yellow-accent {
+    background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
+                linear-gradient(45deg, var(--primary) 0%, transparent 70%);
+}
+
+
+
+.neon-container {
+    border-radius: 12px;
+    border: 2px solid vars.$tercero;;
+    box-shadow: 0 0 15px vars.$tercero;;
+    padding: 2rem;
+    margin: auto;
+
+    div{
+        .title-glow {
+            color:vars.$primary;
+            font-weight: bold;
+            text-shadow: 0 0 8px vars.$primary;
+          }
+        .subtitle-glow {
+            color: vars.$primary;
+            font-size: 1.1rem;
+            text-shadow: 0 0 5px rgba(241, 196, 15, 0.6);
+        }
+        select {
+            &.select-glow {
+                padding: 0.8rem;
+                font-size: 1rem;
+                border: none;
+                border-radius: 8px;
+                outline: none;
+                background-color: #0e163d;
+                color: vars.$primary;
+                border: 1px solid vars.$primary;
+                background-color: #1c1f26;
+    
+          
+              &:focus {
+                outline: none;
+                box-shadow: 0 0 15px #f1c40f;
+                border-color: #f39c12;
+              }
+            }
+          }
+    }
+  }
+  
+
+.section-conversor{
+    //background-color: #111733;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: auto;
+    border: 2px solid vars.$tercero;
+    box-shadow: 0 0 15px vars.$tercero;
+    
+    h1 {
+        text-align: center;
+        color: vars.$primary;
+        margin-bottom: 2rem;
+        text-shadow: 0 0 10px vars.$primary;
+      }
+    .container-convesor{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        justify-content: center;
+        .select-conversor ,
+         .input-conversor{
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            background-color: #0e163d;
+            color: vars.$tercero;;
+            border: 1px solid vars.$tercero;;
+
+        }
+        .button-conversor{
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            color: vars.$tercero;;
+            border: 1px solid vars.$tercero;;
+            background-color: vars.$tercero;;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .flecha {
+            font-size: 1.5rem;
+            color: #ffe600;
+            margin: 0 0.5rem;
+          }
+      
+
+        
+    }
+    .tasaActual {
+        color: vars.$primary;
+        margin-top: 1.5rem;
+        font-size: 1.2rem;
+        text-align: center;
+        font-weight: bold;
+      }
+  
+}
+
+  
+

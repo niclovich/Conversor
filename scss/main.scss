@@ -1,0 +1,24 @@
+
+@use 'utilidades/variables'; 
+/*Generales */
+//Generales//
+
+@use 'generales/global.scss';
+
+
+/*Nav*/
+//Nav
+@use 'generales/navbar.scss';
+
+
+@use 'generales/main.scss';
+
+/*Fotter*/
+//Fotter
+@use 'generales/footer.scss';
+
+
+/*-----Home----*/
+//----Home-----
+@use 'pages/home.scss';  
+

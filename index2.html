@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversor Horizontal</title>
+  <style>
+    body {
+      background-color: #0a0f2c;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .contenedor {
+      background-color: #111733;
+      border: 2px solid #00ffcc;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      box-shadow: 0 0 15px #00ffcc;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffe600;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px #ffe600;
+    }
+
+    .formulario {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    input, select, button {
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      background-color: #0e163d;
+      color: #00ffcc;
+      border: 1px solid #00ffcc;
+    }
+
+    button {
+      background-color: #00ffcc;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #00ffaa;
+    }
+
+    .flecha {
+      font-size: 1.5rem;
+      color: #ffe600;
+      margin: 0 0.5rem;
+    }
+
+    .resultado, .tasaActual {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .resultado {
+      color: #00ffaa;
+    }
+
+    .tasaActual {
+      color: #ffdd57;
+      text-shadow: 0 0 5px #ffe600;
+    }
+
+    @media (max-width: 700px) {
+      .formulario {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor">
+    <h1>🚀 Conversor de Divisas y Criptos</h1>
+
+    <div class="formulario">
+      <input type="number" id="cantidad" placeholder="Cantidad" />
+      
+      <select id="origen" onchange="mostrarTasa()">
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+        <option value="BTC">BTC</option>
+        <option value="ETH">ETH</option>
+        <option value="USDT">USDT</option>
+      </select>
+
+      <span class="flecha">→</span>
+
+      <select id="destino" onchange="mostrarTasa()">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="BTC">BTC</option>
+        <option value="ETH">ETH</option>
+        <option value="USDT">USDT</option>
+      </select>
+
+      <button onclick="convertir()">Convertir</button>
+    </div>
+
+    <div class="tasaActual" id="tasa"></div>
+    <div class="resultado" id="resultado"></div>
+  </div>
+
+  <script>
+    const tasas = {
+      EUR: { USD: 1.13, BTC: 0.000015, ETH: 0.00025, USDT: 1.10 },
+      USD: { EUR: 0.88, BTC: 0.000013, ETH: 0.00021, USDT: 1 },
+      BTC: { EUR: 67000, USD: 75000, ETH: 15, USDT: 74000 },
+      ETH: { EUR: 4000, USD: 5000, BTC: 0.067, USDT: 4950 },
+      USDT: { EUR: 0.91, USD: 1, BTC: 0.000013, ETH: 0.00020 }
+    };
+
+    function convertir() {
+      const cantidad = parseFloat(document.getElementById("cantidad").value);
+      const origen = document.getElementById("origen").value;
+      const destino = document.getElementById("destino").value;
+
+      if (origen === destino) {
+        document.getElementById("resultado").textContent = "Selecciona monedas diferentes.";
+        return;
+      }
+
+      const tasa = tasas[origen]?.[destino];
+      if (!tasa) {
+        document.getElementById("resultado").textContent = "Tasa no disponible.";
+        return;
+      }
+
+      const total = cantidad * tasa;
+      document.getElementById("resultado").textContent = `${cantidad} ${origen} = ${total.toFixed(4)} ${destino}`;
+    }
+
+    function mostrarTasa() {
+      const origen = document.getElementById("origen").value;
+      const destino = document.getElementById("destino").value;
+
+      if (origen === destino) {
+        document.getElementById("tasa").textContent = "";
+        return;
+      }
+
+      const tasa = tasas[origen]?.[destino];
+      if (!tasa) {
+        document.getElementById("tasa").textContent = "Tasa no disponible.";
+      } else {
+        document.getElementById("tasa").textContent = `💱 1 ${origen} = ${tasa} ${destino}`;
+      }
+    }
+
+    mostrarTasa();
+  </script>
+
+</body>
+</html>

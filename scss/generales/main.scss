@@ -1,0 +1,9 @@
+
+@use '../utilidades/variables' as vars;
+body {
+    background-color: vars.$background;
+    color: vars.$foreground;
+    font-family: "Inter", sans-serif;
+    margin-top: 50px;
+    height: 90vh;
+}
