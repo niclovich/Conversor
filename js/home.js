@@ -61,6 +61,11 @@ function loadConversor(){
 
 }
 
+const conversion = (cantidad, monedaDesde, monedaHacia) => {
+    const valorUSD = cantidad * monedaDesde.precioUSD;
+    return valorUSD / monedaHacia.precioUSD;
+  };
+
 function mostrarTasa() {
     const origen = document.getElementById("select-origen").value;
     const destino = document.getElementById("select-destino").value;
@@ -82,7 +87,18 @@ function mostrarTasa() {
   }
 
 function convertir(){
-    alert('Convertir');
+    const origen = document.getElementById("select-origen").value;
+    const destino = document.getElementById("select-destino").value;
+
+    if (origen === destino) {
+      document.getElementById("tasa").textContent = "";
+      return;
+    }
+
+    const monedaOrigen = monedas.find(m => m.simbolo === origen);
+    const monedaDestino = monedas.find(m => m.simbolo === destino);
+  
+
 }
 function inizialicacion() {
     loadSelecetFavorite();
