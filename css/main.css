@@ -102,6 +102,13 @@
   text-align: center;
   font-weight: bold;
 }
+.section-conversor .resultado {
+  color: #00b894;
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+}
 
 /*Nav*/
 /* Navbar */

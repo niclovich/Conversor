@@ -62,8 +62,8 @@ function loadConversor(){
 }
 
 const conversion = (cantidad, monedaDesde, monedaHacia) => {
-    const valorUSD = cantidad * monedaDesde.precioUSD;
-    return valorUSD / monedaHacia.precioUSD;
+    const valorUSD = cantidad * monedaDesde.precio_actual;
+    return valorUSD / monedaHacia.precio_actual;
   };
 
 function mostrarTasa() {
@@ -82,13 +82,14 @@ function mostrarTasa() {
     if (!tasa) {
       document.getElementById("tasa").textContent = "Tasa no disponible.";
     } else {
-      document.getElementById("tasa").textContent = `💱 1 ${origen} = ${tasa} ${destino}`;
+      document.getElementById("tasa").textContent = `1 ${origen} = ${tasa} ${destino}`;
     }
   }
 
 function convertir(){
     const origen = document.getElementById("select-origen").value;
     const destino = document.getElementById("select-destino").value;
+    const cantidad = parseInt(document.getElementById("input-cantidad").value);
 
     if (origen === destino) {
       document.getElementById("tasa").textContent = "";
@@ -97,6 +98,10 @@ function convertir(){
 
     const monedaOrigen = monedas.find(m => m.simbolo === origen);
     const monedaDestino = monedas.find(m => m.simbolo === destino);
+    const cantidadConvertida   =  conversion(cantidad, monedaOrigen, monedaDestino);
+    //alert(`${cantidad} ${origen} equivale a ${cantidadConvertida.toFixed(10)} ${destino}`);
+    document.getElementById("resultado").textContent = `${cantidad} ${origen} = ${cantidadConvertida.toFixed(4)} ${destino}`;
+
   
 
 }

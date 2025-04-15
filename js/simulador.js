@@ -64,8 +64,8 @@ const monedas = [
     }
   
     const cantidadConvertida = conversion(cantidad, monedaDesde, monedaHacia);
-
-    alert(`${cantidad} ${desde} equivale a ${cantidadConvertida.toFixed(10)} ${hacia}`);
+    
+    //alert(`${cantidad} ${desde} equivale a ${cantidadConvertida.toFixed(10)} ${hacia}`);
   }
   
   // Menú de simulador
