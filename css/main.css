@@ -257,7 +257,7 @@ body {
   flex-wrap: wrap;
 }
 
-.table-monedas {
+.table-activos {
   width: 100%;
   border-radius: 12px;
   border: 2px solid #00f0ff;
@@ -265,10 +265,10 @@ body {
   padding: 2rem;
   margin: auto;
 }
-.table-monedas thead {
+.table-activos thead {
   background-color: #10172a;
 }
-.table-monedas thead th {
+.table-activos thead th {
   padding: 12px 15px;
   text-align: center;
   border-bottom: 1px solid #1a2238;
@@ -276,7 +276,7 @@ body {
   font-weight: 600;
   font-size: 14px;
 }
-.table-monedas tbody .fav-btn {
+.table-activos tbody .fav-btn {
   background: none;
   border: none;
   font-size: 18px;
@@ -284,10 +284,10 @@ body {
   color: #ccc;
   transition: color 0.3s;
 }
-.table-monedas tbody tr:hover {
+.table-activos tbody tr:hover {
   background-color: #1a2238;
 }
-.table-monedas tbody tr td {
+.table-activos tbody tr td {
   padding: 12px 15px;
   text-align: center;
   border-bottom: 1px solid #1a2238;

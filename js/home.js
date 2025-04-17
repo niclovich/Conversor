@@ -1,52 +1,96 @@
+//--Favroritos--//
+//Cargar listado de favoritos
 function loadContainerFavorite() {
     const container = document.querySelector('.container-favorite');
     container.innerHTML = ''; // Limpiamos el contenido previo
   
-    monedas.forEach(moneda => {
-      const spread = moneda.precio_venta - moneda.precio_compra;
-      const variacion = parseFloat(moneda.variacion.replace('%', '').replace('+', ''));
+    activos.forEach(activo => {
+      const spread = activo.precio_venta - activo.precio_compra;
+      const variacion = parseFloat(activo.variacion.replace('%', '').replace('+', ''));
       const time = new Date().toLocaleTimeString();
   
-      const cardHTML = createCardMoneda({
-        title: `${moneda.nombre} (${moneda.simbolo})`,
+      const cardHTML = createCardactivos({
+        title: `${activo.nombre} (${activo.simbolo})`,
         variation: variacion,
         spread: spread,
         time: time,
-        sellPrice: moneda.precio_venta,
-        buyPrice: moneda.precio_compra
+        sellPrice: activo.precio_venta,
+        buyPrice: activo.precio_compra
       });
   
       container.innerHTML += cardHTML;
     });
   }
 
-function loadSelecetFavorite() {
-    const select = document.querySelector('#moneda-select');
+  function loadSelecetFavorite() {
+    const select = document.querySelector('#activos-select');
     select.innerHTML = ''; // Limpiamos el contenido previo
   
-    monedas.forEach(moneda => {
-      if(moneda.tipo === 'CRYPTO' || moneda.tipo === 'FIAT') {
-        // Solo añadimos monedas de tipo CRYPTO o FIAT
+    activos.forEach(activo => {
+      if(activo.tipo === 'CRYPTO' || activo.tipo === 'FIAT') {
+        // Solo añadimos activos de tipo CRYPTO o FIAT
         const option = document.createElement('option');
-        option.value = moneda.simbolo;
-        option.textContent = `${moneda.nombre} (${moneda.simbolo})`;
+        option.value = activo.simbolo;
+        option.textContent = `${activo.nombre} (${activo.simbolo})`;
         select.appendChild(option);
 
       }
     });
 }
 
+//--Tabla--// 
+/// Cargar tabla de activos
+function loadTable(){
+  const tbody = document.querySelector('.table-activos tbody');
+  tbody.innerHTML = ''; // Limpiar solo el contenido del cuerpo de la tabla
+  activos.forEach(activo => {
+    const rowHTML = rowTable(activo.simbolo, activo.nombre, activo.precio_actual, activo.variacion, activo.variacion_7h, activo.variacion_7d, activo.volumen_24h, activo.market_cap, activo.suministro, 'img/grafico.png');
+    tbody.innerHTML += rowHTML;
+  });
+
+}
+
+
+function filterTable(){
+  const searchInput = document.querySelector('#filterInput').value.toLowerCase();
+  const rows = document.querySelectorAll('.table-activos tbody tr');
+  
+  rows.forEach(row => {
+    const simbolo = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+    const nombre = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+    
+    if (simbolo.includes(searchInput) || nombre.includes(searchInput)) {
+      row.style.display = ''; // Mostrar la fila si coincide con el filtro
+    } else {
+      row.style.display = 'none'; // Ocultar la fila si no coincide
+    }
+  });
+}
+
+function filterTableType(type){
+  const tbody = document.querySelector('.table-activos tbody');
+  tbody.innerHTML = ''; // Limpiar solo el contenido del cuerpo de la tabla
+  
+  activos.forEach(activo => {
+    if(type !== 'TODAS' && activo.tipo !== type) return; // Filtrar por tipo de activo
+    const rowHTML = rowTable(activo.simbolo, activo.nombre, activo.precio_actual, activo.variacion, activo.variacion_7h, activo.variacion_7d, activo.volumen_24h, activo.market_cap, activo.suministro);
+    tbody.innerHTML += rowHTML;
+  });
+}
+
+
+//--Conversor--//
 // Conversor 
 function loadSelecetSimbolo(idSelecet){
     const select = document.querySelector('#'+ idSelecet);
     select.innerHTML = ''; // Limpiamos el contenido previo
 
-    monedas.forEach(moneda => {
-        if(moneda.tipo === 'CRYPTO' || moneda.tipo === 'FIAT') {
-          // Solo añadimos monedas de tipo CRYPTO o FIAT
+    activos.forEach(activo => {
+        if(activo.tipo === 'CRYPTO' || activo.tipo === 'FIAT') {
+          // Solo añadimos activosde tipo CRYPTO o FIAT
           const option = document.createElement('option');
-          option.value = moneda.simbolo;
-          option.textContent = `${moneda.simbolo}`;
+          option.value = activo.simbolo;
+          option.textContent = `${activo.simbolo}`;
           select.appendChild(option);
   
         }
@@ -54,16 +98,10 @@ function loadSelecetSimbolo(idSelecet){
     //Carga un select atravez de un simbolo.
 }
 
-function loadConversor(){
-    loadSelecetSimbolo('select-origen');
-    loadSelecetSimbolo('select-destino');
 
-
-}
-
-const conversion = (cantidad, monedaDesde, monedaHacia) => {
-    const valorUSD = cantidad * monedaDesde.precio_actual;
-    return valorUSD / monedaHacia.precio_actual;
+const conversion = (cantidad, activosDesde, activosHacia) => {
+    const valorUSD = cantidad * activosDesde.precio_actual;
+    return valorUSD / activosHacia.precio_actual;
   };
 
 function mostrarTasa() {
@@ -75,10 +113,10 @@ function mostrarTasa() {
       return;
     }
 
-    const monedaOrigen = monedas.find(m => m.simbolo === origen);
-    const monedaDestino = monedas.find(m => m.simbolo === destino);
+    const activosOrigen = activos.find(m => m.simbolo === origen);
+    const activosDestino = activos.find(m => m.simbolo === destino);
   
-    const tasa = monedaOrigen.precio_actual / monedaDestino.precio_actual;
+    const tasa = activosOrigen.precio_actual / activosDestino.precio_actual;
     if (!tasa) {
       document.getElementById("tasa").textContent = "Tasa no disponible.";
     } else {
@@ -96,19 +134,28 @@ function convertir(){
       return;
     }
 
-    const monedaOrigen = monedas.find(m => m.simbolo === origen);
-    const monedaDestino = monedas.find(m => m.simbolo === destino);
-    const cantidadConvertida   =  conversion(cantidad, monedaOrigen, monedaDestino);
+    const activosOrigen = activos.find(m => m.simbolo === origen);
+    const activosDestino = activos.find(m => m.simbolo === destino);
+    const cantidadConvertida   =  conversion(cantidad, activosOrigen, activosDestino);
     //alert(`${cantidad} ${origen} equivale a ${cantidadConvertida.toFixed(10)} ${destino}`);
     document.getElementById("resultado").textContent = `${cantidad} ${origen} = ${cantidadConvertida.toFixed(4)} ${destino}`;
 
   
 
 }
+
+function loadConversor(){
+  loadSelecetSimbolo('select-origen');
+  loadSelecetSimbolo('select-destino');
+
+
+}
+
 function inizialicacion() {
     loadSelecetFavorite();
     loadContainerFavorite();
     loadConversor();
+    loadTable();
 }
 
 
