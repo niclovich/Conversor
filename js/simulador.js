@@ -47,7 +47,7 @@ const monedas = [
       alert(mensaje);
     }
     
-  // Función para convertir entre monedamonedas
+  // Función para convertir entre monedas
   function convertirmoneda() {
     var simbolos = monedas.map(moneda => moneda.simbolo);
     const desde = prompt("Convertir desde ("+ simbolos.join(",")+").").toUpperCase();

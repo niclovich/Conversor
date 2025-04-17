@@ -1,111 +1,22 @@
 const monedas = [
-    {
-      nombre: "Bitcoin",
-      simbolo: "BTC",
-      tipo: "CRYPTO",
-      precio_actual: 84750.25,
-      precio_compra: 84500.00,
-      precio_venta: 85000.00,
-      variacion: "+2.31%"
-    },
-    {
-      nombre: "Ethereum",
-      simbolo: "ETH",
-      tipo: "CRYPTO",
-      precio_actual: 2975.40,
-      precio_compra: 2950.00,
-      precio_venta: 3000.00,
-      variacion: "+1.87%"
-    },
-    {
-      nombre: "Tether",
-      simbolo: "USDT",
-      tipo: "CRYPTO",
-      precio_actual: 1.00,
-      precio_compra: 0.999,
-      precio_venta: 1.001,
-      variacion: "0.00%"
-    },
-    {
-      nombre: "Solana",
-      simbolo: "SOL",
-      tipo: "CRYPTO",
-      precio_actual: 155.12,
-      precio_compra: 153.50,
-      precio_venta: 157.00,
-      variacion: "-0.45%"
-    },
-    {
-      nombre: "BNB",
-      simbolo: "BNB",
-      tipo: "CRYPTO",
-      precio_actual: 415.65,
-      precio_compra: 410.00,
-      precio_venta: 420.00,
-      variacion: "+0.92%"
-    },
-    {
-      nombre: "Dólar Estadounidense",
-      simbolo: "USD",
-      tipo: "FIAT",
-      precio_actual: 1.00,
-      precio_compra: 0.99,
-      precio_venta: 1.01,
-      variacion: "-0.10%"
-    },
-    {
-      nombre: "Euro",
-      simbolo: "EUR",
-      tipo: "FIAT",
-      precio_actual: 1.08,
-      precio_compra: 1.07,
-      precio_venta: 1.09,
-      variacion: "-0.25%"
-    },
-    {
-      nombre: "Peso Argentino",
-      simbolo: "ARS",
-      tipo: "FIAT",
-      precio_actual: 0.0011,
-      precio_compra: 0.0010,
-      precio_venta: 0.0012,
-      variacion: "-1.95%"
-    },
-    {
-      nombre: "Real Brasileño",
-      simbolo: "BRL",
-      tipo: "FIAT",
-      precio_actual: 0.20,
-      precio_compra: 0.19,
-      precio_venta: 0.21,
-      variacion: "-0.75%"
-    },
-    {
-      nombre: "Apple Inc.",
-      simbolo: "AAPL",
-      tipo: "STOCK",
-      precio_actual: 172.50,
-      precio_compra: 171.30,
-      precio_venta: 173.70,
-      variacion: "+1.02%"
-    },
-    {
-      nombre: "Tesla Inc.",
-      simbolo: "TSLA",
-      tipo: "STOCK",
-      precio_actual: 205.40,
-      precio_compra: 203.00,
-      precio_venta: 208.00,
-      variacion: "-2.12%"
-    },
-    {
-      nombre: "Amazon.com Inc.",
-      simbolo: "AMZN",
-      tipo: "STOCK",
-      precio_actual: 189.15,
-      precio_compra: 187.00,
-      precio_venta: 191.00,
-      variacion: "+0.74%"
-    }
-  ];
-  
+  { id: 1, nombre: "Bitcoin", simbolo: "BTC", tipo: "CRYPTO", precio_actual: 84750.25, precio_compra: 84500.00, precio_venta: 85000.00, variacion: "+2.31%" },
+  { id: 2, nombre: "Ethereum", simbolo: "ETH", tipo: "CRYPTO", precio_actual: 2975.40, precio_compra: 2950.00, precio_venta: 3000.00, variacion: "+1.87%" },
+  { id: 3, nombre: "Tether", simbolo: "USDT", tipo: "CRYPTO", precio_actual: 1.00, precio_compra: 0.999, precio_venta: 1.001, variacion: "0.00%" },
+  { id: 4, nombre: "Solana", simbolo: "SOL", tipo: "CRYPTO", precio_actual: 155.12, precio_compra: 153.50, precio_venta: 157.00, variacion: "-0.45%" },
+  { id: 5, nombre: "BNB", simbolo: "BNB", tipo: "CRYPTO", precio_actual: 415.65, precio_compra: 410.00, precio_venta: 420.00, variacion: "+0.92%" },
+  { id: 6, nombre: "Dólar Estadounidense", simbolo: "USD", tipo: "FIAT", precio_actual: 1.00, precio_compra: 0.99, precio_venta: 1.01, variacion: "-0.10%" },
+  { id: 7, nombre: "Euro", simbolo: "EUR", tipo: "FIAT", precio_actual: 1.08, precio_compra: 1.07, precio_venta: 1.09, variacion: "-0.25%" },
+  { id: 8, nombre: "Peso Argentino", simbolo: "ARS", tipo: "FIAT", precio_actual: 0.0011, precio_compra: 0.0010, precio_venta: 0.0012, variacion: "-1.95%" },
+  { id: 9, nombre: "Real Brasileño", simbolo: "BRL", tipo: "FIAT", precio_actual: 0.20, precio_compra: 0.19, precio_venta: 0.21, variacion: "-0.75%" },
+  { id: 10, nombre: "Apple Inc.", simbolo: "AAPL", tipo: "STOCK", precio_actual: 172.50, precio_compra: 171.30, precio_venta: 173.70, variacion: "+1.02%" },
+  { id: 11, nombre: "Tesla Inc.", simbolo: "TSLA", tipo: "STOCK", precio_actual: 205.40, precio_compra: 203.00, precio_venta: 208.00, variacion: "-2.12%" },
+  { id: 12, nombre: "Amazon.com Inc.", simbolo: "AMZN", tipo: "STOCK", precio_actual: 189.15, precio_compra: 187.00, precio_venta: 191.00, variacion: "+0.74%" },
+  { id: 13, nombre: "Microsoft Corp.", simbolo: "MSFT", tipo: "STOCK", precio_actual: 310.40, precio_compra: 308.00, precio_venta: 312.50, variacion: "+0.98%" },
+  { id: 14, nombre: "Dogecoin", simbolo: "DOGE", tipo: "CRYPTO", precio_actual: 0.079, precio_compra: 0.078, precio_venta: 0.081, variacion: "+3.25%" },
+  { id: 15, nombre: "Yen Japonés", simbolo: "JPY", tipo: "FIAT", precio_actual: 0.0067, precio_compra: 0.0066, precio_venta: 0.0068, variacion: "-0.30%" },
+  { id: 16, nombre: "Cardano", simbolo: "ADA", tipo: "CRYPTO", precio_actual: 0.60, precio_compra: 0.59, precio_venta: 0.61, variacion: "+1.15%" },
+  { id: 17, nombre: "Meta Platforms", simbolo: "META", tipo: "STOCK", precio_actual: 245.30, precio_compra: 243.50, precio_venta: 247.10, variacion: "+0.88%" },
+  { id: 18, nombre: "Litecoin", simbolo: "LTC", tipo: "CRYPTO", precio_actual: 92.15, precio_compra: 90.50, precio_venta: 93.80, variacion: "-0.63%" },
+  { id: 19, nombre: "Francos Suizos", simbolo: "CHF", tipo: "FIAT", precio_actual: 1.12, precio_compra: 1.11, precio_venta: 1.13, variacion: "-0.18%" },
+  { id: 20, nombre: "Alibaba Group", simbolo: "BABA", tipo: "STOCK", precio_actual: 81.40, precio_compra: 80.10, precio_venta: 82.70, variacion: "-1.10%" }
+];

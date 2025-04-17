@@ -62,6 +62,43 @@
 
               </div>
           </section>
+
+          <section class="section-table">
+            <h2>Top Criptomonedas</h2>
+            <div class="filter-container">
+              <button class="action-btn active" data-category="all">Todas</button>
+              <button class="action-btn" data-category="layer1">FIAT</button>
+              <button class="action-btn" data-category="defi">Crypto</button>
+              <button class="action-btn" data-category="stablecoin">Acciones</button>
+            </div>
+          
+            <input type="text" id="filterInput" placeholder="Filtrar por nombre..." class="action-input">
+            <table class="table-monedas ">
+              <thead>
+                <tr>
+                  <th>★</th>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th>Precio</th>
+                  <th>1h %</th>
+                  <th>24h %</th>
+                  <th>7d %</th>
+                  <th>Capitalización</th>
+                  <th>Volumen (24h)</th>
+                  <th>Suministro</th>
+                  <th>Gráfico</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><button class="fav-btn">☆</button></td><td>1</td><td>Bitcoin</td><td>84.188,04 US$</td><td class="green-text">+0.28%</td><td class="red-text">-0.62%</td><td class="green-text">+9.33%</td><td>$1.671B</td><td>$27.12B</td><td>19.85M</td>
+                  <td><img src="img/grafico.png" class="sparkline" alt="sparkline"></td>
+                </tr>
+                <!-- Puedes duplicar esta fila para otros criptoactivos -->
+              </tbody>
+            </table>
+          </section>
+
           <section class="section-conversor"> 
 
                <h1>🚀 Conversor de Divisas y Criptos</h1>
@@ -85,6 +122,8 @@
               <div class="tasaActual" id="tasa"></div>
               <div class="resultado" id="resultado"></div>
           </section>
+
+      
 
         </div>
 

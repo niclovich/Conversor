@@ -5,7 +5,7 @@ $primary: #ffd700;
 $primary-foreground: #000000;
 $secondary: #ffeb3b;
 $secondary-foreground: #000000;
-$tercero:#00ffcc;
+$tercero:#00f0ff;
 $tercero-foreground: #000000;
 
 $accent: #ffc107;
@@ -23,5 +23,6 @@ $border: #334155;
 $ring: #ffd700;
 
 // Estados
-$background-success: #00b894;
-$background-warning: #f56464; // rojito tipo Tailwind red-500
+$success: #00b894;
+$warning: #f56464; // rojito tipo Tailwind red-500
+$error: #f56464; // rojito tipo Tailwind red-500    

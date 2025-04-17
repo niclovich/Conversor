@@ -1,4 +1,11 @@
 /*Generales */
+body {
+  background-color: #0a0f24;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 30px;
+  color: #fff;
+}
+
 .yellow-text {
   color: var(--primary) !important;
 }
@@ -13,8 +20,8 @@
 
 .neon-container {
   border-radius: 12px;
-  border: 2px solid #00ffcc;
-  box-shadow: 0 0 15px #00ffcc;
+  border: 2px solid #00f0ff;
+  box-shadow: 0 0 15px #00f0ff;
   padding: 2rem;
   margin: auto;
 }
@@ -49,8 +56,8 @@
   border-radius: 12px;
   padding: 2rem;
   margin: auto;
-  border: 2px solid #00ffcc;
-  box-shadow: 0 0 15px #00ffcc;
+  border: 2px solid #00f0ff;
+  box-shadow: 0 0 15px #00f0ff;
 }
 .section-conversor h1 {
   text-align: center;
@@ -73,8 +80,8 @@
   border-radius: 8px;
   outline: none;
   background-color: #0e163d;
-  color: #00ffcc;
-  border: 1px solid #00ffcc;
+  color: #00f0ff;
+  border: 1px solid #00f0ff;
 }
 .section-conversor .container-convesor .button-conversor {
   padding: 0.8rem;
@@ -82,9 +89,9 @@
   border: none;
   border-radius: 8px;
   outline: none;
-  color: #00ffcc;
-  border: 1px solid #00ffcc;
-  background-color: #00ffcc;
+  color: #00f0ff;
+  border: 1px solid #00f0ff;
+  background-color: #00f0ff;
   color: #000;
   font-weight: bold;
   cursor: pointer;
@@ -108,6 +115,42 @@
   font-size: 1.2rem;
   text-align: center;
   font-weight: bold;
+}
+
+/* Estilos para texts y button */
+.green-text {
+  color: #00b894 !important;
+  font-weight: bold;
+}
+
+.red-text {
+  color: #f56464 !important;
+  font-weight: bold;
+}
+
+.action-btn {
+  background-color: #12192f;
+  border: 2px solid #00f0ff;
+  color: #00f0ff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.action-btn:hover, .action-btn.active {
+  background-color: #00f0ff;
+  color: #0a0f24;
+}
+
+.action-input {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #12192f;
+  color: #00f0ff;
+  outline: none;
 }
 
 /*Nav*/
@@ -205,6 +248,51 @@ body {
 .cotizacion-card .action-icons i:hover {
   color: #00ffcc;
   cursor: pointer;
+}
+
+.filter-container {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.table-monedas {
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid #00f0ff;
+  box-shadow: 0 0 15px #00f0ff;
+  padding: 2rem;
+  margin: auto;
+}
+.table-monedas thead {
+  background-color: #10172a;
+}
+.table-monedas thead th {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #1a2238;
+  color: #00f0ff;
+  font-weight: 600;
+  font-size: 14px;
+}
+.table-monedas tbody .fav-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s;
+}
+.table-monedas tbody tr:hover {
+  background-color: #1a2238;
+}
+.table-monedas tbody tr td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #1a2238;
+  color: #e0f7fa;
+  font-size: 13px;
 }
 
 /*# sourceMappingURL=main.css.map */

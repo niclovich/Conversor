@@ -1,5 +1,12 @@
 
 @use '../utilidades/variables' as vars;
+body {
+  background-color: #0a0f24;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 30px;
+  color: #fff;
+}
+
 .yellow-text {
     color: var(--primary) !important;
 }
@@ -57,6 +64,7 @@
   }
   
 
+    
 .section-conversor{
     //background-color: #111733;
     border-radius: 12px;
@@ -120,7 +128,7 @@
         font-weight: bold;
       }
     .resultado{
-        color: vars.$background-success;
+        color: vars.$success;
         margin-top: 1.5rem;
         font-size: 1.2rem;
         text-align: center;
@@ -130,4 +138,41 @@
 }
 
   
+/* Estilos para texts y button */
 
+.green-text {
+  color: vars.$success !important;
+  font-weight: bold;  }
+
+.red-text {
+  color: vars.$warning !important;
+  font-weight: bold;  }
+
+
+.action-btn {
+    background-color: #12192f;
+    border: 2px solid vars.$tercero;
+    color: vars.$tercero;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+  
+    &:hover,
+    &.active {
+      background-color: vars.$tercero;
+      color: #0a0f24;
+    }
+  }
+
+
+  .action-input {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #12192f;
+    color: vars.$tercero;
+    outline: none;
+  }
