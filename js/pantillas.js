@@ -2,23 +2,25 @@
 
 
 
-function createCardactivos({ title, variation, spread, time, sellPrice, buyPrice }) {
-  const className = variation > 0 ? 'positive' : variation < 0 ? 'negative' : 'neutral';
+function createCardactivos(activo) {
+  const time = new Date().toLocaleTimeString();
+  const className = activo.variacion > 0 ? 'positive' : activo.variacion < 0 ? 'negative' : 'neutral';
+  const spread = activo.precio_venta - activo.precio_compra;
   return `
-    <div class="card cotizacion-card ${className}">
+    <div class="card cotizacion-card ${className}" id="fav-${activo.id}">
       <div class="card-header-custom">
-        <span>${title}</span>
-        <span class="variation-badge">${variation > 0 ? '+' : ''}${variation.toFixed(2)}%</span>
+        <span>${activo.nombre} (${activo.simbolo})</span>
+        <span class="variation-badge">${activo.variacion > 0 ? '+' : ''}${activo.variacion}</span>
       </div>
       <div class="spread-info">${time} &nbsp;|&nbsp; Spread: ${spread.toFixed(2)}</div>
       <div class="d-flex justify-content-between">
         <div class="price-block">
           <div class="price-label">VENDÉ A:</div>
-          <div class="price-value">${sellPrice}</div>
+          <div class="price-value">${activo.precio_venta}</div>
         </div>
         <div class="price-block text-end">
           <div class="price-label">COMPRÁ A:</div>
-          <div class="price-value">${buyPrice}</div>
+          <div class="price-value">${activo.precio_compra}</div>
         </div>
       </div>
       <div class="action-icons ">
@@ -30,10 +32,12 @@ function createCardactivos({ title, variation, spread, time, sellPrice, buyPrice
 }
 
 
-function rowTable(simbolo,title,price,varation1h,varation24h,varation7d,volumen,marketcap,outstanding) {
-  const tendencia7d = varation7d.charAt(0);
-  const tendencia24h = varation24h.charAt(0);
-  const tendencia1h = varation1h.charAt(0);
+function rowTable(activo) {
+  //    const rowHTML = rowTable(activo.simbolo, activo.nombre, activo.precio_actual, activo.variacion, activo.variacion_24h, activo.variacion_7d, activo.volumen_24h, activo.market_cap, activo.suministro, 'img/grafico.png');
+  console.log(activo.variacion_7d);
+  const tendencia7d = activo.variacion_7d.charAt(0);
+  const tendencia24h = activo.variacion_24h.charAt(0);
+  const tendencia1h = activo.variacion.charAt(0);
   const className7d = tendencia7d === '+' ? 'green-text' : 'red-text';
   const className24h = tendencia24h === '+' ? 'green-text' : 'red-text';
   const className1h = tendencia1h === '+' ? 'green-text' : 'red-text';
@@ -42,9 +46,16 @@ function rowTable(simbolo,title,price,varation1h,varation24h,varation7d,volumen,
   ? 'img/grafico-up.png' 
   : 'img/grafico-down.png';
 
+  const iconoFavorito = inFavoritos(activo.id) ? '★' : '☆';
+  const claseFavorito = inFavoritos(activo.id) ? 'favorited' : '';
   return `
   <tr>
-    <td><button class="fav-btn">☆</button></td><td>${simbolo}</td><td>${title}</td><td>${price}</td><td  class=${className1h} >${varation1h}</td><td class=${className24h} >${varation24h}</td><td class=${className7d} >${varation7d}</td><td>${volumen}</td><td>${marketcap}</td><td>${outstanding}</td>
+    <td><button class="fav-btn ${claseFavorito}" onclick="addFavorite(this, ${activo.id})">${iconoFavorito}</button></td>
+    <td>${activo.simbolo}</td><td>${activo.nombre}</td><td>${activo.precio_actual}</td>
+    <td class=${className1h}>${activo.variacion}</td>
+    <td class=${className24h}>${activo.variacion_24h}</td>
+    <td class=${className7d}>${activo.variacion_7d}</td>
+    <td>${activo.volumen_24h}</td><td>${activo.market_cap}</td><td>${activo.suministro}</td>
     <td><img src=${sparklineImg} class="sparkline" alt="sparkline"></td>
-  </tr> `;
+  </tr>`;
 }

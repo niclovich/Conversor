@@ -1,27 +1,31 @@
 //--Favroritos--//
 //Cargar listado de favoritos
 function loadContainerFavorite() {
-    const container = document.querySelector('.container-favorite');
-    container.innerHTML = ''; // Limpiamos el contenido previo
-  
-    activos.forEach(activo => {
-      const spread = activo.precio_venta - activo.precio_compra;
-      const variacion = parseFloat(activo.variacion.replace('%', '').replace('+', ''));
-      const time = new Date().toLocaleTimeString();
-  
-      const cardHTML = createCardactivos({
-        title: `${activo.nombre} (${activo.simbolo})`,
-        variation: variacion,
-        spread: spread,
-        time: time,
-        sellPrice: activo.precio_venta,
-        buyPrice: activo.precio_compra
-      });
-  
-      container.innerHTML += cardHTML;
-    });
-  }
+  const container = document.querySelector('.container-favorite');
+  container.innerHTML = '';
 
+  const favoritos = JSON.parse(localStorage.getItem("activos_favoritos")) || [];
+
+  activos.forEach(activo => {
+    if (!favoritos.includes(activo.id)) return;
+
+    // const spread = activo.precio_venta - activo.precio_compra;
+    // const variacion = parseFloat(activo.variacion.replace('%', '').replace('+', ''));
+    // const time = new Date().toLocaleTimeString();
+
+    // const cardHTML = createCardactivos({
+    //   title: `${activo.nombre} (${activo.simbolo})`,
+    //   variation: variacion,
+    //   spread: spread,
+    //   time: time,
+    //   sellPrice: activo.precio_venta,
+    //   buyPrice: activo.precio_compra
+    // });
+    const cardHTML = createCardactivos(activo);
+
+    container.innerHTML += cardHTML;
+  });
+}
   function loadSelecetFavorite() {
     const select = document.querySelector('#activos-select');
     select.innerHTML = ''; // Limpiamos el contenido previo
@@ -44,7 +48,7 @@ function loadTable(){
   const tbody = document.querySelector('.table-activos tbody');
   tbody.innerHTML = ''; // Limpiar solo el contenido del cuerpo de la tabla
   activos.forEach(activo => {
-    const rowHTML = rowTable(activo.simbolo, activo.nombre, activo.precio_actual, activo.variacion, activo.variacion_7h, activo.variacion_7d, activo.volumen_24h, activo.market_cap, activo.suministro, 'img/grafico.png');
+    const rowHTML = rowTable(activo);
     tbody.innerHTML += rowHTML;
   });
 
@@ -73,10 +77,52 @@ function filterTableType(type){
   
   activos.forEach(activo => {
     if(type !== 'TODAS' && activo.tipo !== type) return; // Filtrar por tipo de activo
-    const rowHTML = rowTable(activo.simbolo, activo.nombre, activo.precio_actual, activo.variacion, activo.variacion_7h, activo.variacion_7d, activo.volumen_24h, activo.market_cap, activo.suministro);
+    const rowHTML = rowTable(activo);
     tbody.innerHTML += rowHTML;
   });
 }
+
+
+//--Favoritos--//
+function inFavoritos(id) {
+  const favoritos = JSON.parse(localStorage.getItem("activos_favoritos")) || [];
+  return favoritos.includes(id);
+}
+
+
+function addFavorite(button, id) {
+  let favoritos = JSON.parse(localStorage.getItem("activos_favoritos")) || [];
+
+  const isFavorite = button.textContent === '★';
+  button.textContent = isFavorite ? '☆' : '★';
+  button.classList.toggle('favorited', !isFavorite);
+
+  if (inFavoritos(id)) {
+
+    //Sacamos del  localStore
+    favoritos = favoritos.filter(favId => favId !== id);
+    //Sacamos del contenedor de favoritos
+    const container = document.querySelector('.container-favorite');
+    const cardToRemove = document.getElementById(`fav-${id}`);
+    if (cardToRemove) {
+      cardToRemove.remove();
+    }
+  
+
+  } else {
+    favoritos.push(id);
+    //Agregamos al contenedor de favoritos
+    const container = document.querySelector('.container-favorite');
+    const activo = activos.find(a => a.id === id);
+    const cardHTML = createCardactivos(activo);
+
+    container.innerHTML += cardHTML;
+
+  }
+
+  localStorage.setItem("activos_favoritos", JSON.stringify(favoritos));
+}
+
 
 
 //--Conversor--//
@@ -97,6 +143,7 @@ function loadSelecetSimbolo(idSelecet){
       });
     //Carga un select atravez de un simbolo.
 }
+
 
 
 const conversion = (cantidad, activosDesde, activosHacia) => {

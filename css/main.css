@@ -153,6 +153,11 @@ body {
   outline: none;
 }
 
+.favorited {
+  color: #ffd700 !important;
+  font-weight: bold;
+}
+
 /*Nav*/
 /* Navbar */
 .navbar {
