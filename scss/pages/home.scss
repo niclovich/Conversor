@@ -4,76 +4,96 @@
 // Home Page Styles
 // COTIZACION -CARD
 .cotizacion-card {
-    background-color: vars.$card;
-    color: white;
+  background-color: vars.$card;
+  color: white;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 290px;
+  margin: 1rem auto;
+  box-shadow: 0 0 10px #00b89455;
+  transition: all 0.3s ease;
+
+  &.success {
     border: 2px solid #00b894;
-    border-radius: 12px;
-    padding: 1rem;
-    width: 290px;
-    margin: 1rem auto;
-    box-shadow: 0 0 10px #00b89455;
-    transition: all 0.3s ease;
-  
+    box-shadow: 0 0 12px #00b89499;
+
     &:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 15px #00b89488;
+      box-shadow: 0 0 18px #00ffccaa;
     }
-  
-    .card-header-custom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
+  }
+
+  &.warning {
+    border: 2px solid #e74c3c;
+    box-shadow: 0 0 12px #e74c3c99;
+
+    &:hover {
+      box-shadow: 0 0 18px #ff6b6b;
     }
-  
-    .variation-badge {
-      background-color: #00b894;
-      padding: 0.2rem 0.5rem;
-      border-radius: 10px;
+  }
+
+  .card-header-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .variation-badge-success {
+    background-color: #00b894;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  .variation-badge-warning {
+    background-color: #ec1109;
+    padding: 0.2rem 0.5rem;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  .spread-info {
+    color: #bbb;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .price-block {
+    width: 48%;
+
+    .price-label {
+      font-size: 0.75rem;
+      color: #aaa;
+    }
+
+    .price-value {
+      font-size: 1.5rem;
       font-weight: bold;
-      font-size: 0.9rem;
+      color: #00ffb3;
     }
-  
-    .spread-info {
-      color: #bbb;
-      font-size: 0.8rem;
-      margin-bottom: 0.5rem;
-    }
-  
-    .price-block {
-      width: 48%;
-  
-      .price-label {
-        font-size: 0.75rem;
-        color: #aaa;
-      }
-  
-      .price-value {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #00ffb3;
-      }
-    }
-  
-    .action-icons {
-      border-top: 1px solid #333;
-      margin-top: 1rem;
-      padding-top: 0.5rem;
-      display: flex;
-      justify-content: space-around;
-      font-size: 1.1rem;
-      color: #ccc;
-  
-      i {
-        &:hover {
-          color: #00ffcc;
-          cursor: pointer;
-        }
+  }
+
+  .action-icons {
+    border-top: 1px solid #333;
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.1rem;
+    color: #ccc;
+
+    i {
+      &:hover {
+        color: #00ffcc;
+        cursor: pointer;
       }
     }
   }
-  
+}
+
 .filter-container{
   margin-bottom: 20px;
   display: flex;

@@ -4,13 +4,15 @@
 
 function createCardactivos(activo) {
   const time = new Date().toLocaleTimeString();
-  const className = activo.variacion > 0 ? 'positive' : activo.variacion < 0 ? 'negative' : 'neutral';
+  const variacionNum = parseFloat(activo.variacion.replace('%', '').replace('+', ''));
+  const classNameCard = variacionNum >= 0 ? 'success' : variacionNum < 0 ? 'warning' : '';
+  const ClassNameBadge = variacionNum>= 0 ? 'variation-badge-success' :'variation-badge-warning' ;
   const spread = activo.precio_venta - activo.precio_compra;
   return `
-    <div class="card cotizacion-card ${className}" id="fav-${activo.id}">
+    <div class="card cotizacion-card ${classNameCard}" id="fav-${activo.id}">
       <div class="card-header-custom">
         <span>${activo.nombre} (${activo.simbolo})</span>
-        <span class="variation-badge">${activo.variacion > 0 ? '+' : ''}${activo.variacion}</span>
+        <span class="${ClassNameBadge}">${activo.variacion > 0 ? '+' : ''}${activo.variacion}</span>
       </div>
       <div class="spread-info">${time} &nbsp;|&nbsp; Spread: ${spread.toFixed(2)}</div>
       <div class="d-flex justify-content-between">
@@ -34,7 +36,7 @@ function createCardactivos(activo) {
 
 function rowTable(activo) {
   //    const rowHTML = rowTable(activo.simbolo, activo.nombre, activo.precio_actual, activo.variacion, activo.variacion_24h, activo.variacion_7d, activo.volumen_24h, activo.market_cap, activo.suministro, 'img/grafico.png');
-  console.log(activo.variacion_7d);
+  //console.log(activo.variacion_7d);
   const tendencia7d = activo.variacion_7d.charAt(0);
   const tendencia24h = activo.variacion_24h.charAt(0);
   const tendencia1h = activo.variacion.charAt(0);

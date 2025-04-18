@@ -102,7 +102,7 @@ function addFavorite(button, id) {
     //Sacamos del  localStore
     favoritos = favoritos.filter(favId => favId !== id);
     //Sacamos del contenedor de favoritos
-    const container = document.querySelector('.container-favorite');
+   // const container = document.querySelector('.container-favorite');
     const cardToRemove = document.getElementById(`fav-${id}`);
     if (cardToRemove) {
       cardToRemove.remove();
@@ -199,7 +199,7 @@ function loadConversor(){
 }
 
 function inizialicacion() {
-    loadSelecetFavorite();
+    //loadSelecetFavorite();
     loadContainerFavorite();
     loadConversor();
     loadTable();

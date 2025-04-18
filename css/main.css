@@ -198,7 +198,6 @@ body {
 .cotizacion-card {
   background-color: #1e293b;
   color: white;
-  border: 2px solid #00b894;
   border-radius: 12px;
   padding: 1rem;
   width: 290px;
@@ -206,9 +205,19 @@ body {
   box-shadow: 0 0 10px rgba(0, 184, 148, 0.3333333333);
   transition: all 0.3s ease;
 }
-.cotizacion-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 15px rgba(0, 184, 148, 0.5333333333);
+.cotizacion-card.success {
+  border: 2px solid #00b894;
+  box-shadow: 0 0 12px rgba(0, 184, 148, 0.6);
+}
+.cotizacion-card.success:hover {
+  box-shadow: 0 0 18px rgba(0, 255, 204, 0.6666666667);
+}
+.cotizacion-card.warning {
+  border: 2px solid #e74c3c;
+  box-shadow: 0 0 12px rgba(231, 76, 60, 0.6);
+}
+.cotizacion-card.warning:hover {
+  box-shadow: 0 0 18px #ff6b6b;
 }
 .cotizacion-card .card-header-custom {
   display: flex;
@@ -217,8 +226,15 @@ body {
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
-.cotizacion-card .variation-badge {
+.cotizacion-card .variation-badge-success {
   background-color: #00b894;
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+.cotizacion-card .variation-badge-warning {
+  background-color: #ec1109;
   padding: 0.2rem 0.5rem;
   border-radius: 10px;
   font-weight: bold;
