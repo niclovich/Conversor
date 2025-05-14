@@ -40,11 +40,12 @@ function rowTable(activo) {
   const tendencia7d = activo.variacion_7d.charAt(0);
   const tendencia24h = activo.variacion_24h.charAt(0);
   const tendencia1h = activo.variacion.charAt(0);
-  const className7d = tendencia7d === '+' ? 'green-text' : 'red-text';
-  const className24h = tendencia24h === '+' ? 'green-text' : 'red-text';
-  const className1h = tendencia1h === '+' ? 'green-text' : 'red-text';
+
+  const className7d = tendencia7d >=0 ? 'green-text' : 'red-text';
+  const className24h = tendencia24h >=0  ? 'green-text' : 'red-text';
+  const className1h = tendencia1h >=0   ? 'green-text' : 'red-text';
  //Imagen de gráfico según la tendencia 7d
-  const sparklineImg = tendencia7d === '+' 
+  const sparklineImg = tendencia7d  >=0 
   ? 'img/grafico-up.png' 
   : 'img/grafico-down.png';
 

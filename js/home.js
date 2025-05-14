@@ -46,6 +46,7 @@ function loadContainerFavorite() {
 /// Cargar tabla de activos
 function loadTable(){
   const tbody = document.querySelector('.table-activos tbody');
+  if (!tbody) return; // Asegurarse de que el tbody existe
   tbody.innerHTML = ''; // Limpiar solo el contenido del cuerpo de la tabla
   activos.forEach(activo => {
     const rowHTML = rowTable(activo);
@@ -200,9 +201,11 @@ function loadConversor(){
 
 function inizialicacion() {
     //loadSelecetFavorite();
-    loadContainerFavorite();
-    loadConversor();
-    loadTable();
+    // Ejecutar la función
+    obtenerCriptos();
+    //loadContainerFavorite();
+    //loadConversor();
+    //loadTable();
 }
 
 
