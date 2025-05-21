@@ -26,8 +26,9 @@ function createCardactivos(activo) {
         </div>
       </div>
       <div class="action-icons ">
-        <i class="fas fa-clock"></i>
-        <i class="fas fa-clipboard"></i>
+          <i class="fas fa-star" onclick="addFavorite(this, ${activo.id})" ></i> 
+          <i class="fas fa-calculator" onclick="loadToConverter(${activo.id})"  ></i>
+
       </div>
     </div>
   `;
@@ -52,10 +53,6 @@ function createCardFiat(activo) {
           <div class="price-label">COMPRÁ A:</div>
           <div class="price-value">${activo.precio_compra}</div>
         </div>
-      </div>
-      <div class="action-icons ">
-        <i class="fas fa-clock"></i>
-        <i class="fas fa-clipboard"></i>
       </div>
     </div>
   `;

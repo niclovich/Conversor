@@ -201,7 +201,6 @@ body {
   flex-wrap: wrap; /* Permite que los ítems bajen a la siguiente fila */
   justify-content: center;
   gap: 10px;
-  max-height: 400px; /* 4 filas de 100px cada una */
 }
 
 .container-favorite {

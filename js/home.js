@@ -135,7 +135,7 @@ function addFavorite(button, id) {
   const cardId = `fav-${id}`;
   const cardInDOM = document.querySelector(`#${cardId}`);
 
-  if (isFavorite) {
+  if (inFavoritos(id)) {
     favoritos = favoritos.filter(favId => favId !== id);
 
     if (cardInDOM && gliderInstance) {
@@ -243,12 +243,37 @@ function convertir() {
     activosDestino
   );
   //alert(`${cantidad} ${origen} equivale a ${cantidadConvertida.toFixed(10)} ${destino}`);
-  document.getElementById(
-    "resultado"
-  ).textContent = `${cantidad} ${origen} = ${cantidadConvertida.toFixed(
-    20
-  )} ${destino}`;
+  document.querySelector("#resultado").textContent = `${cantidad} ${origen} = ${cantidadConvertida.toFixed(20)} ${destino}`;
+
 }
+function loadToConverter(id) {
+  const activo = activos.find(a => a.id === id);
+  if (!activo) {
+    notyf.error("Activo no encontrado.");
+    return;
+  }
+
+  // Cargar el símbolo del activo en el select de origen
+  const selectOrigen = document.querySelector('#select-origen');
+  selectOrigen.value = activo.simbolo;
+
+  // Cargar el símbolo de USDT en el select de destino
+  const selectDestino =  document.querySelector('#select-destino');
+  selectDestino.value = 'USDT'; 
+
+  // Cargar la cantidad en el input de cantidad
+  const inputCantidad = document.querySelector('#input-cantidad');
+  inputCantidad.value = 1; // Cambia esto a la cantidad que desees
+  // Hacer scroll hasta la sección del conversor
+  const conversor = document.querySelector('.section-conversor');
+  if (conversor) {
+    conversor.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Mostrar la tasa de conversión actual entre origen y destino
+  mostrarTasa();
+}
+
 
 function loadConversor() {
   loadSelecetSimbolo("select-origen");
@@ -260,6 +285,7 @@ function loadConversor() {
 
 function loadContainerDolares() {
   const container = document.querySelector(".container-dolar ");
+  if (!container) return; // Asegurarse de que el contenedor existe
   container.innerHTML = "";
 
   dolars.forEach((dolar) => {
@@ -267,6 +293,8 @@ function loadContainerDolares() {
     container.innerHTML += cardHTML;
   });
 }
+
+
 
 async function inizialicacion() {
   //loadSelecetFavorite();
