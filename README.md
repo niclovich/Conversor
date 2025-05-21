@@ -29,8 +29,16 @@
 - CSS3 / Bootstrap 5
 - JavaScript Vanilla (ES6+)
 - Font Awesome (para íconos)
+- Glider.js (para carrusel deslizante)
+- Notyf.js (para notificaciones estilo toast)
 
 ---
+## 🔌 APIs utilizadas
+-💱 Dólar API - https://dolarapi.com:
+Para obtener cotizaciones actualizadas de monedas como el dólar oficial, blue, MEP, CCL, etc.
+
+📉 mockapi.io
+Para consultar valores actuales de criptomonedas como BTC, ETH, entre otras. (Fue utilzizada como una manera de facilitarme los datos , por que estas son Pagas o Gratis con muchas limitaciones)
 
 ## ⚙️ Cómo usar
 
