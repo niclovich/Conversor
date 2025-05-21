@@ -6,11 +6,18 @@
     <title>CryptoBro - Your Cryptocurrency Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         
-    <!-- Asegúrate de tener Font Awesome para los íconos -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Font Awesome para los íconos -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+    <!-- Notfy -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+
+    <!-- Glider -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+
     <link rel="stylesheet" href="css/main.css">
+
 </head>
 <body class="crypto-theme">
     <header>
@@ -33,7 +40,9 @@
         </nav>
     </header>
     <main>
-        <div class="container pt-5 favorite">
+        <div class="container mt-5 pt-5">
+     
+              
           <section class="seccion-favorite mb-2">
             
             <!-- <div class="container-title row py-4 neon-container">
@@ -56,15 +65,42 @@
             </div> -->
              <!-- <h2>Top Criptoactivoss</h2> -->
 
-              
-              <div class="container-favorite  row">
+          <div class="glider-contain">
+            <div class="glider container-favorite">
+
+            </div>
+
+            <button aria-label="Previous" class="glider-prev">«</button>
+            <button aria-label="Next" class="glider-next">»</button>
+            <div role="tablist" class="dots"></div>
+          </div>
+
+          
+              <!-- <div class="container-favorite  row">
 
 
-              </div>
+              </div> -->
           </section>
 
+               <section class="seccion-dolar mb-5">
+            <div class="container-title row py-4 ">
+                <h1 class="title-glow">💵 Dólar Hoy</h1>
+                <p class="subtitle-glow">Consulta el valor del dólar en tiempo real.</p> 
+            
+
+            </div>
+
+            <div class="container-dolar row ">
+              <!-- Aquí se generarán las tarjetas de cotización -->
+            </div>
+      
+
+          </section>
+
+        
+
           <section class="section-table mb-5">
-            <h2>Top Criptoactivoss</h2>
+             <h1>Listado Activos</h1>
             <div class="filter-container">
               <button class="action-btn active"    onclick="filterTableType('TODAS')" >TODO</button>
               <button class="action-btn" onclick="filterTableType('FIAT')" >FIAT</button>
@@ -253,11 +289,16 @@
         </div>
     </footer>
 
+   <!-- Notfy -->
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <!-- Glider -->
+     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     
     <script src="js/data.js"></script>
     <script src="js/pantillas.js"></script>
     <script src="js/home.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

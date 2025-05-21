@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*Generales */
 body {
   background-color: #0a0f24;
@@ -195,6 +196,22 @@ body {
 }
 
 /*-----Home----*/
+.container-dolar {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los ítems bajen a la siguiente fila */
+  justify-content: center;
+  gap: 10px;
+  max-height: 400px; /* 4 filas de 100px cada una */
+}
+
+.container-favorite {
+  display: flex;
+  justify-content: center;
+}
+.container-favorite .glider-track {
+  gap: 10px;
+}
+
 .cotizacion-card {
   background-color: #1e293b;
   color: white;
@@ -204,6 +221,7 @@ body {
   margin: 1rem auto;
   box-shadow: 0 0 10px rgba(0, 184, 148, 0.3333333333);
   transition: all 0.3s ease;
+  height: auto;
 }
 .cotizacion-card.success {
   border: 2px solid #00b894;

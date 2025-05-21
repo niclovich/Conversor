@@ -1,7 +1,24 @@
-
-@use '../utilidades/variables' as vars;
+@use "../utilidades/variables" as vars;
 
 // Home Page Styles
+
+.container-dolar  {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los ítems bajen a la siguiente fila */
+  justify-content: center;
+  gap: 10px;
+
+  max-height: calc(4 * 100px); /* 4 filas de 100px cada una */
+}
+
+.container-favorite {
+  display: flex;
+  justify-content: center;
+  .glider-track {
+    gap: 10px;
+  
+  }
+}
 // COTIZACION -CARD
 .cotizacion-card {
   background-color: vars.$card;
@@ -12,6 +29,7 @@
   margin: 1rem auto;
   box-shadow: 0 0 10px #00b89455;
   transition: all 0.3s ease;
+  height: auto;
 
   &.success {
     border: 2px solid #00b894;
@@ -94,26 +112,25 @@
   }
 }
 
-.filter-container{
+.filter-container {
   margin-bottom: 20px;
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-
 .table-activos {
   width: 100%;
   border-radius: 12px;
-  border: 2px solid vars.$tercero;;
-  box-shadow: 0 0 15px vars.$tercero;;
+  border: 2px solid vars.$tercero;
+  box-shadow: 0 0 15px vars.$tercero;
   padding: 2rem;
   margin: auto;
 
   thead {
     background-color: #10172a;
 
-    th{
+    th {
       padding: 12px 15px;
       text-align: center;
       border-bottom: 1px solid #1a2238;
@@ -121,7 +138,6 @@
       font-weight: 600;
       font-size: 14px;
     }
-
   }
 
   tbody {
